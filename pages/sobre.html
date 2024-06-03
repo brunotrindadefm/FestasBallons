@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - JB & J BALÕES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #e8e8e0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #111111;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            color: #B68F68;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu-toggle {
+            color: #B68F68;
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu a {
+            color: #B68F68;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 22px;
+        }
+
+        .menu a:hover {
+            background: #C8B1A3;
+            color: white;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #111111;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .menu li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+        }
+
+        .about-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section h1 {
+            font-size: 36px;
+            color: #212121;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-content h2 {
+            font-size: 28px;
+            color: #212121;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .team-section {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .team-section h2 {
+            font-size: 28px;
+            color: #212121;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .team-member {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1 1 calc(33.333% - 40px);
+            max-width: calc(33.333% - 40px);
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            color: #212121;
+            margin: 0 0 10px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: #555555;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                flex: 1 1 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-member {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        footer {
+            background: #111111;
+            color: #B68F68;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .redes-sociais a {
+            margin: 0 10px;
+            display: inline-block;
+            font-size: 24px;
+            color: #B68F68;
+        }
+
+        footer p {
+            margin: 0;
+        }
+        .social3:hover {
+            color: orange;
+        }
+        .social1:hover {
+            color: green;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">JB & J BALÕES</div>
+        <nav>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="menu" id="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <h1>Sobre</h1>
+        <div class="about-content">
+            <h2>Minha História</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste molestias aut dolorum officia omnis iusto commodi. Mollitia eum delectus culpa reiciendis quaerat modi molestias ipsam ullam numquam, dolorem atque sapiente.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia in ea recusandae eaque ad magni magnam suscipit at doloremque sequi nostrum non, tempore quam impedit esse ab quasi corrupti ipsum.
+            </p>
+
+            <h2>Missão</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora natus nihil ut quas officiis, quibusdam, eius doloribus magnam temporibus rerum totam porro maiores, laudantium dicta beatae dolores incidunt. Itaque, exercitationem.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate soluta ad, eius repudiandae est qui amet eum eos itaque rem sunt accusantium molestiae assumenda aspernatur possimus, ipsa ratione impedit iusto.
+            </p>
+
+            <h2>Visão</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic omnis eligendi doloremque sequi perspiciatis, earum similique eum, nobis, corrupti suscipit sit ducimus? Dignissimos sapiente harum velit consectetur inventore molestias facere?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A animi quae ab numquam dicta eaque blanditiis ullam ducimus suscipit, nesciunt vero rerum veritatis, mollitia, expedita nisi illum velit architecto modi! </p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Sobre mim</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="image/Image (5) (1).jpg" alt="Membro da equipe">
+                <h3>Bruno Trindade</h3>
+                <p><b>Front-End</b></p>
+                <br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio rerum doloremque fuga odit quo temporibus repudiandae iusto reprehenderit dolore voluptatum ipsa fugit dignissimos voluptatibus tenetur, debitis voluptates natus animi aliquid.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="redes-sociais">
+            <a href="https://wa.me/+55" target="_blank" class="social1"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; JB & J BALÕES</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            menuToggle.addEventListener('click', function () {
+                menu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

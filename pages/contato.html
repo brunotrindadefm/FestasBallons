@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JB & J BALÕES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos globais */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            background-color: #e8e8e0;
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit;
+        }
+
+        header {
+            background: #111111;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #B68F68;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            color: #B68F68;
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu a {
+            color: #B68F68;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 22px;
+        }
+
+        .menu a:hover {
+            background: #C8B1A3;
+            color: white;
+            transition: background 0.25s, color 0.25s;
+        }
+
+        /* Estilos para dispositivos móveis */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #111111;
+                position: absolute;
+                top: 60px;
+                left: 0;
+            }
+
+            .menu li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu.active {
+                display: flex;
+            }
+        }
+
+        /* Estilos para o rodapé */
+        footer {
+            background: #111111;
+            color: #B68F68;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .redes-sociais {
+            margin-bottom: 20px;
+        }
+
+        .social1,
+        .social2,
+        .social3,
+        .social4 {
+            margin: 0 10px;
+            display: inline-block;
+            font-size: 24px;
+            color: #B68F68;
+        }
+
+        .social1:hover {
+            color: green;
+        }
+
+        .social3:hover {
+            color: orange;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        .spacer {
+            height: 80px; /* Ajuste conforme necessário para evitar sobreposição com o header */
+        }
+
+        .imagemfundo {
+            position: relative;
+            width: 100%;
+            height: 30vh;
+        }
+
+        .imagemfundo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .texto-sobre-imagem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 2.8vw;
+            padding: 1vw;
+            text-shadow: 2px 2px 10px black;
+            border-radius: 50px;
+            width: 80%;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .texto-sobre-imagem {
+                font-size: 2.6vw;
+                padding: 4vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .texto-sobre-imagem {
+                font-size: 3vw;
+                padding: 2vw;
+            }
+        }
+
+        /* Estilo do contêiner do formulário */
+        .form-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 5% 3vw;
+            font-size: 1em;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 4vh;
+            box-sizing: border-box;
+            border-radius: 16px;
+            background: linear-gradient(#212121, #212121) padding-box,
+                linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+            border: 2px solid transparent;
+            overflow: hidden;
+        }
+
+        /* Estilos para os campos de entrada e áreas de texto */
+        .form-container .form-group input,
+        .form-container .form-group textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 2vh 3vw;
+            border-radius: 8px;
+            color: #fff;
+            background-color: transparent;
+            border: 1px solid #414141;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        /* Estilos para os rótulos dos campos */
+        .form-container .form-group label {
+            color: #b0b0b0;
+            font-weight: bold;
+        }
+
+        /* Estilos para o botão de envio */
+        .form-container .form-submit-btn {
+            width: 100%;
+            padding: 2vh 3vw;
+            background-color: #40c9ff;
+            border: none;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .form-container .form-submit-btn:hover {
+            background-color: #e81cff;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                width: 90%;
+                padding: 8% 5%;
+            }
+        }
+
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .aside-container {
+            width: 30%;
+            background-color: #212121;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 16px;
+            box-sizing: border-box;
+            margin-right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .aside-container {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 8% 5%;
+            }
+        }
+
+        .products-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+        }
+
+        .products-section h2 {
+            margin-bottom: 20px;
+            font-size: 35px;
+            color: #212121;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow:
+                -1px -1px 0 #B68F68,
+                1px -1px 0 #B68F68,
+                -1px 1px 0 #B68F68,
+                1px 1px 0 #B68F68;
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .card p {
+            width: 210px;
+            height: 254px;
+            border-radius: 4px;
+            background: #212121;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: all .5s;
+            border: 1px solid #B68F68;
+        }
+
+        .card p:hover {
+            flex: 4;
+        }
+
+        .card p span {
+            min-width: 14em;
+            padding: .5em;
+            text-align: center;
+            transform: rotate(-90deg);
+            transition: all .5s;
+            text-transform: uppercase;
+            color: #B68F68;
+            letter-spacing: .1em;
+        }
+
+        .card p:hover span {
+            transform: rotate(0);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">JB & J BALÕES</div>
+        <nav>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="menu" id="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="spacer"></div>
+
+    <div class="imagemfundo">
+        <img src="image/technology (2).jpg" alt="imagem de fundo">
+        <div class="texto-sobre-imagem">
+            <h2>ENTRE EM CONTATO CONOSCO</h2>
+            <p>Nos fale o que você achou do site e nos ajude a melhorar!</p>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <aside class="aside-container">
+            <h2>Envie sua mensagem</h2>
+            <p>Entre em contato pelo nosso gmail: jbejbaloes@gmail.com ou preencha o formulário ao lado</p>
+        </aside>
+
+        <div class="form-container">
+            <h2 class="formtit">Deixe sua mensagem para JB & J Balões</h2>
+            <form class="form">
+                <div class="form-group">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu email:</label>
+                    <input type="text" id="email" name="email" placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="dominio">Profissão (Se possuir)</label>
+                    <input type="text" id="dominio" name="dominio">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" placeholder="Digite sua mensagem"></textarea>
+                </div>
+                <button type="submit" class="form-submit-btn">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="redes-sociais">
+            <a href="https://wa.me/+55" target="_blank" class="social1"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; JB & J BALÕES</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+            menuToggle.addEventListener('click', function () {
+                menu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
