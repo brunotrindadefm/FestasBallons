@@ -17,14 +17,15 @@
             overflow-x: hidden;
         }
 
+        /* Estilos para o cabeçalho */
         header {
             background: #111111;
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
             position: fixed;
             top: 0;
             z-index: 1000;
@@ -57,6 +58,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            position: relative;
         }
 
         .menu li {
@@ -69,14 +71,26 @@
             font-size: 18px;
             padding: 8px 16px;
             border-radius: 22px;
+            display: inline-block;
+            position: relative;
         }
 
-        .menu a:hover {
-            background: #C8B1A3;
-            color: white;
-            transition: background 0.25s, color 0.25s;
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.4s ease;
         }
 
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Estilos para dispositivos móveis */
         @media (max-width: 768px) {
             .menu {
                 display: none;
@@ -203,23 +217,35 @@
             margin-top: 20px;
         }
 
+
         .redes-sociais a {
+            margin: 0 7px;
+            display: inline-block;
+            font-size: 24px;
+            color: #B68F68;
+        }
+
+        .redes-socias {
+            margin-bottom: 10px;
+        }
+
+        .social1,
+        .social2,
+        .social3,
+        .social4 {
             margin: 0 10px;
             display: inline-block;
             font-size: 24px;
             color: #B68F68;
         }
 
-        footer p {
-            margin: 0;
-        }
-        .social3:hover {
-            color: orange;
-        }
         .social1:hover {
             color: green;
         }
-        
+
+        .social3:hover {
+            color: #eb7138;
+        }
     </style>
 </head>
 
@@ -240,18 +266,29 @@
         <h1>Sobre</h1>
         <div class="about-content">
             <h2>Minha História</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste molestias aut dolorum officia omnis iusto commodi. Mollitia eum delectus culpa reiciendis quaerat modi molestias ipsam ullam numquam, dolorem atque sapiente.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia in ea recusandae eaque ad magni magnam suscipit at doloremque sequi nostrum non, tempore quam impedit esse ab quasi corrupti ipsum.
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste molestias aut dolorum officia omnis iusto
+                commodi. Mollitia eum delectus culpa reiciendis quaerat modi molestias ipsam ullam numquam, dolorem
+                atque sapiente.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia in ea recusandae eaque ad magni magnam
+                suscipit at doloremque sequi nostrum non, tempore quam impedit esse ab quasi corrupti ipsum.
             </p>
 
             <h2>Missão</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora natus nihil ut quas officiis, quibusdam, eius doloribus magnam temporibus rerum totam porro maiores, laudantium dicta beatae dolores incidunt. Itaque, exercitationem.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate soluta ad, eius repudiandae est qui amet eum eos itaque rem sunt accusantium molestiae assumenda aspernatur possimus, ipsa ratione impedit iusto.
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora natus nihil ut quas officiis, quibusdam,
+                eius doloribus magnam temporibus rerum totam porro maiores, laudantium dicta beatae dolores incidunt.
+                Itaque, exercitationem.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate soluta ad, eius repudiandae est qui
+                amet eum eos itaque rem sunt accusantium molestiae assumenda aspernatur possimus, ipsa ratione impedit
+                iusto.
             </p>
 
             <h2>Visão</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic omnis eligendi doloremque sequi perspiciatis, earum similique eum, nobis, corrupti suscipit sit ducimus? Dignissimos sapiente harum velit consectetur inventore molestias facere?
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A animi quae ab numquam dicta eaque blanditiis ullam ducimus suscipit, nesciunt vero rerum veritatis, mollitia, expedita nisi illum velit architecto modi! </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic omnis eligendi doloremque sequi
+                perspiciatis, earum similique eum, nobis, corrupti suscipit sit ducimus? Dignissimos sapiente harum
+                velit consectetur inventore molestias facere?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A animi quae ab numquam dicta eaque blanditiis
+                ullam ducimus suscipit, nesciunt vero rerum veritatis, mollitia, expedita nisi illum velit architecto
+                modi! </p>
         </div>
     </section>
 
@@ -263,7 +300,9 @@
                 <h3>Bruno Trindade</h3>
                 <p><b>Front-End</b></p>
                 <br>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio rerum doloremque fuga odit quo temporibus repudiandae iusto reprehenderit dolore voluptatum ipsa fugit dignissimos voluptatibus tenetur, debitis voluptates natus animi aliquid.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio rerum doloremque fuga odit quo
+                    temporibus repudiandae iusto reprehenderit dolore voluptatum ipsa fugit dignissimos voluptatibus
+                    tenetur, debitis voluptates natus animi aliquid.</p>
             </div>
         </div>
     </section>
@@ -271,7 +310,8 @@
     <footer>
         <div class="redes-sociais">
             <a href="https://wa.me/+55" target="_blank" class="social1"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i
+                    class="fab fa-instagram"></i></a>
         </div>
         <p>&copy; JB & J BALÕES</p>
     </footer>

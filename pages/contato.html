@@ -8,8 +8,8 @@
     <title>JB & J BALÕES</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilos globais */
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -19,26 +19,20 @@
             overflow-x: hidden;
         }
 
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        *, *::before, *::after {
-            box-sizing: inherit;
-        }
-
+        /* Estilos para o cabeçalho */
         header {
             background: #111111;
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
-            position: sticky;
+            padding: 10px 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+            position: fixed;
             top: 0;
             z-index: 1000;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .logo {
@@ -52,6 +46,7 @@
         nav {
             display: flex;
             align-items: center;
+            padding: 10px;
         }
 
         .menu-toggle {
@@ -66,6 +61,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            position: relative;
         }
 
         .menu li {
@@ -78,12 +74,23 @@
             font-size: 18px;
             padding: 8px 16px;
             border-radius: 22px;
+            display: inline-block;
+            position: relative;
         }
 
-        .menu a:hover {
-            background: #C8B1A3;
-            color: white;
-            transition: background 0.25s, color 0.25s;
+        .menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.4s ease;
+        }
+
+        .menu a:hover::after {
+            width: 100%;
         }
 
         /* Estilos para dispositivos móveis */
@@ -148,7 +155,8 @@
         }
 
         .spacer {
-            height: 80px; /* Ajuste conforme necessário para evitar sobreposição com o header */
+            height: 70px;
+            /* Ajuste conforme necessário para evitar sobreposição com o header */
         }
 
         .imagemfundo {
@@ -202,7 +210,7 @@
             color: white;
             display: flex;
             flex-direction: column;
-            gap: 4vh;
+            gap: 3vh;
             box-sizing: border-box;
             border-radius: 16px;
             background: linear-gradient(#212121, #212121) padding-box,
@@ -217,6 +225,7 @@
             width: 100%;
             max-width: 100%;
             padding: 2vh 3vw;
+            margin: 15px 0;
             border-radius: 8px;
             color: #fff;
             background-color: transparent;
@@ -292,64 +301,11 @@
             }
         }
 
-        .products-section {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
+        textarea {
+            max-height: 300px;
+            min-height: 120px;
         }
 
-        .products-section h2 {
-            margin-bottom: 20px;
-            font-size: 35px;
-            color: #212121;
-            font-family: Arial, Helvetica, sans-serif;
-            text-shadow:
-                -1px -1px 0 #B68F68,
-                1px -1px 0 #B68F68,
-                -1px 1px 0 #B68F68,
-                1px 1px 0 #B68F68;
-        }
-
-        .card {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-        }
-
-        .card p {
-            width: 210px;
-            height: 254px;
-            border-radius: 4px;
-            background: #212121;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 2px;
-            transition: all .5s;
-            border: 1px solid #B68F68;
-        }
-
-        .card p:hover {
-            flex: 4;
-        }
-
-        .card p span {
-            min-width: 14em;
-            padding: .5em;
-            text-align: center;
-            transform: rotate(-90deg);
-            transition: all .5s;
-            text-transform: uppercase;
-            color: #B68F68;
-            letter-spacing: .1em;
-        }
-
-        .card p:hover span {
-            transform: rotate(0);
-        }
     </style>
 </head>
 
@@ -409,7 +365,8 @@
     <footer>
         <div class="redes-sociais">
             <a href="https://wa.me/+55" target="_blank" class="social1"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.instagram.com/jbjballon?igsh=Y2Q3bm5qeDE0ZWE=" target="_blank" class="social3"><i
+                    class="fab fa-instagram"></i></a>
         </div>
         <p>&copy; JB & J BALÕES</p>
     </footer>

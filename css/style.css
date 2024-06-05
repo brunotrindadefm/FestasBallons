@@ -4,8 +4,8 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-color: #e8e8e0; /* Cor de fundo mais leve */
-    overflow-x: hidden; /* Evitar barra de rolagem horizontal */
+    background-color: #e8e8e0;
+    overflow-x: hidden;
 }
 
 /* Estilos para o cabeçalho */
@@ -15,7 +15,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 20px;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
@@ -49,6 +49,7 @@ nav {
     list-style: none;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .menu li {
@@ -61,12 +62,23 @@ nav {
     font-size: 18px;
     padding: 8px 16px;
     border-radius: 22px;
+    display: inline-block;
+    position: relative;
 }
 
-.menu a:hover {
-    background: #C8B1A3;
-    color: white;
-    transition: background 0.25s, color 0.25s;
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.4s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
 }
 
 /* Estilos para dispositivos móveis */
@@ -101,12 +113,12 @@ main {
     padding: 20px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permitir quebra de linha para elementos */
+    flex-wrap: wrap;
 }
 
 /* Estilos para seções */
 section {
-    padding: 50px 20px; /* Ajuste de espaçamento interno */
+    padding: 50px 20px;
 }
 
 h1, h2 {
@@ -114,19 +126,19 @@ h1, h2 {
 }
 
 p {
-    font-size: 1.2em; /* Tamanho da fonte dos parágrafos */
-    line-height: 1.6; /* Altura da linha */
+    font-size: 1.2em;
+    line-height: 1.6;
 }
 
-/* Estilos para as imagens */
 img {
-    border-radius: 60px; /* Bordas arredondadas */
+    border-radius: 60px;
 }
 
 .container .image-container img {
-    max-width: 100%; /* Tornando as imagens responsivas */
-    height: auto; /* Altura automática */
-    border-radius: 20px; /* Bordas arredondadas */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 /* Estilos para as seções */
@@ -137,58 +149,60 @@ section h2, section p {
 /* Posicionamento da última seção */
 .container:last-child {
     display: flex;
-    flex-direction: row-reverse; /* Inverter ordem dos elementos */
-    align-items: center; /* Alinhamento vertical */
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .container:last-child .image-container {
-    margin-left: auto; /* Alinhar imagem à direita */
-    margin-right: 20px; /* Espaço entre imagem e texto */
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .container:last-child h2, .container:last-child p {
-    text-align: left; /* Texto alinhado à esquerda */
-    margin-right: 20px; /* Espaço entre texto e imagem */
+    text-align: left;
+    margin-right: 20px;
 }
 
-/* Estilos para o carrossel */
-/* Estilos para o carrossel */
 .carrossel-personalizado {
-
     max-width: 1100px;
+    height: 100%;
     margin: 0 auto 40px;
     border-radius: 200px;
 }
 
- .carousel-item img {
+.carousel-item img {
     object-fit: cover;
     width: 100%;
+    height: 100%;
     border-radius: 20px;
-    min-height: 700px;
 }
 
 .carrossel {
-    background-color: #000000;
+    background-color: black;
     max-width: 1100px;
     margin: 0 auto 50px;
     padding: 20px;
     border-radius: 20px;
     max-height: 1100px;
-    min-height: 700px;
 }
 
-/* Estilos para o rodapé */
 footer {
     background: #111111;
     color: #B68F68;
     text-align: center;
     padding: 20px;
     margin-top: 20px;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.redes-sociais a {
+    margin: 0 7px;
+    display: inline-block;
+    font-size: 24px;
+    color: #B68F68;
 }
 
 .redes-socias {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .social1, .social2, .social3, .social4 {
@@ -206,17 +220,13 @@ footer {
     color: #eb7138;
 }
 
-footer p {
-    margin: 0; /* Remove margem padrão do parágrafo */
-}
-
-/* Estilos para as seções */
 .secao1, .secao2, .secao3, .secao4 {
-    background-color: rgba(0, 0, 0, 0.9); /* Cor de fundo */
-    margin-bottom: 30px; /* Espaço entre as seções */
+    background-color: rgba(0, 0, 0, 0.9);
+    margin-bottom: 30px;
     border-radius: 50px;
     max-width: 98%;
 }
+
 .secaomaior {
     display: flex;
     flex-direction: column;
